@@ -1,0 +1,3156 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+
+<!-- =========================
+CONFIGURAÇÕES BÁSICAS
+========================= -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Projeto Levando a Palavra do Senhor</title>
+
+<!-- ÍCONES (FONT AWESOME) -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET E BASE
+========================= */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',Arial,sans-serif;
+}
+
+body{
+background: radial-gradient(circle at top,#2c2400,#000 70%);
+color:white;
+}
+
+/* =========================
+CONTAINER
+========================= */
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+/* =========================
+HEADER
+========================= */
+.header{
+
+text-align:center;
+
+padding:10px 5px;
+
+}
+
+.banner{
+
+width:100%;
+
+max-width:900px;
+
+height:auto;
+
+display:block;
+
+margin:auto;
+
+border-radius:15px;
+
+object-fit:contain;
+
+box-shadow:0 0 30px rgba(255,215,0,.20);
+
+}
+
+.logo{
+font-size:42px;
+color:#ffd700;
+font-weight:900;
+}
+
+.header p{
+color:#ccc;
+margin-top:15px;
+font-size:18px;
+line-height:1.6;
+}
+
+/* =========================
+BOTÕES REDES SOCIAIS
+========================= */
+.redes{
+
+display:flex;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+gap:12px;
+
+margin:25px 0 10px;
+
+}
+
+.redes a{
+display:flex;
+align-items:center;
+gap:10px;
+background:#111;
+border:1px solid #333;
+color:#fff;
+padding:12px 18px;
+border-radius:30px;
+text-decoration:none;
+transition:.3s;
+font-weight:bold;
+}
+
+.redes a i{
+font-size:18px;
+}
+
+/* CORES ESPECÍFICAS */
+.youtube:hover{background:#ff0000;}
+.instagram:hover{background:#e1306c;}
+.facebook:hover{background:#1877f2;}
+.tiktok:hover{background:#000;}
+
+.redes a:hover{
+transform:scale(1.08);
+color:#fff;
+}
+
+/* =========================
+CARD PADRÃO
+========================= */
+.card{
+background:rgba(255,255,255,.05);
+border-radius:20px;
+padding:25px;
+margin-top:25px;
+backdrop-filter:blur(10px);
+box-shadow:0 0 40px rgba(255,215,0,.15);
+}
+
+.apoio-container{
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:22px;
+
+padding:18px;
+
+background:
+linear-gradient(180deg,#17130b 0%,#090909 100%);
+
+border:2px solid rgba(255,191,40,.75);
+
+border-radius:30px;
+
+box-shadow:
+
+    inset 0 0 0 1px rgba(255,255,255,.05),
+
+    inset 0 30px 40px rgba(255,220,120,.03),
+
+    0 0 35px rgba(255,185,0,.18),
+
+    0 25px 80px rgba(0,0,0,.45);
+
+position:relative;
+overflow:hidden;
+
+}
+
+.apoio-container::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+right:0;
+
+height:2px;
+
+background:linear-gradient(
+90deg,
+transparent,
+#ffd76a,
+#fff4b0,
+#ffd76a,
+transparent
+);
+
+opacity:.9;
+
+}
+
+.fluxo-controle {
+
+    text-align: center;
+
+    margin: 8px auto 5px;
+
+    font-size: 9px;
+
+    color: rgba(255,255,255,.22);
+
+    font-weight: 500;
+
+    letter-spacing: .5px;
+
+    user-select: none;
+
+}
+
+.apoio-container::after{
+
+content:"";
+
+position:absolute;
+
+top:-120px;
+left:-120px;
+
+width:260px;
+height:260px;
+
+border-radius:50%;
+
+background:radial-gradient(
+circle,
+rgba(255,200,40,.15),
+transparent 70%
+);
+
+pointer-events:none;
+
+}
+
+
+.figurinhas{
+
+width:34%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+
+.figurinha{
+
+width:175px;
+
+position:absolute;
+
+opacity:0;
+
+transform:scale(.92);
+
+transition:
+opacity .7s,
+transform .7s;
+
+filter:
+
+drop-shadow(0 8px 18px rgba(0,0,0,.55))
+drop-shadow(0 0 12px rgba(255,200,70,.35));
+
+}
+
+
+.figurinhas{
+
+width:34%;
+
+height:220px;
+
+position:relative;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:
+linear-gradient(180deg,#1d1405 0%,#0b0b0b 100%);
+
+border:2px solid rgba(255,194,58,.70);
+
+border-radius:28px;
+
+box-shadow:
+
+    inset 0 0 45px rgba(255,210,90,.08),
+
+    inset 0 1px 0 rgba(255,255,255,.05),
+
+    0 12px 35px rgba(0,0,0,.35),
+
+    0 0 18px rgba(255,185,0,.10);
+
+overflow:hidden;
+
+}
+
+
+.figurinha.ativa{
+
+opacity:1;
+
+transform:scale(1.05);
+
+z-index:2;
+
+}
+
+/* =========================
+   CHAMADA FIGURINHAS
+========================= */
+
+.figurinhas-exclusivas {
+    position: absolute;
+
+    bottom: 10px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    padding: 5px 11px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(30,22,5,.95),
+            rgba(10,10,10,.95)
+        );
+
+    border: 1px solid rgba(212,175,55,.65);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.4),
+        0 0 12px rgba(212,175,55,.12);
+
+    white-space: nowrap;
+
+    z-index: 5;
+}
+
+.figurinhas-exclusivas span {
+    color: #ffd45c;
+
+    font-size: 12px;
+    font-weight: 900;
+
+    letter-spacing: .3px;
+}
+
+.figurinhas-exclusivas small {
+    color: rgba(255,255,255,.78);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: .3px;
+}
+
+.toast-pix {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+
+    z-index: 999999;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    min-width: 320px;
+    max-width: 420px;
+
+    padding: 15px 18px;
+
+    background: rgba(15, 15, 15, 0.96);
+
+    border: 1px solid rgba(212, 175, 55, 0.45);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.45),
+        0 0 25px rgba(212, 175, 55, 0.08);
+
+    backdrop-filter: blur(12px);
+
+    opacity: 0;
+    transform: translateX(120%);
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s cubic-bezier(.22, .61, .36, 1);
+
+    pointer-events: none;
+}
+
+
+.toast-pix.mostrar {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+
+.toast-pix-icone {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(212, 175, 55, 0.12);
+
+    border: 1px solid rgba(212, 175, 55, 0.35);
+
+    color: #d4af37;
+
+    font-size: 18px;
+}
+
+
+.toast-pix-icone.erro {
+    color: #ff5c5c;
+    background: rgba(255, 92, 92, 0.1);
+    border-color: rgba(255, 92, 92, 0.3);
+}
+
+
+.toast-pix-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    flex: 1;
+}
+
+
+.toast-pix-texto strong {
+    color: #d4af37;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+}
+
+
+.toast-pix-texto span {
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: 12px;
+
+    line-height: 1.4;
+}
+
+
+.toast-pix-fechar {
+    width: 28px;
+    height: 28px;
+
+    border: none;
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.35);
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.2s;
+}
+
+
+.toast-pix-fechar:hover {
+    color: #d4af37;
+}
+/* =========================================
+   CHAMADA — TOPO DO CARD
+========================================= */
+
+.chamada-doacao-conteudo {
+    width: 100%;
+    box-sizing: border-box;
+
+    min-height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+
+    padding: 15px 30px;
+    margin-bottom: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(212, 175, 55, 0.12),
+            rgba(212, 175, 55, 0.025)
+        );
+
+    border: 1px solid rgba(212, 175, 55, 0.4);
+
+    border-radius: 12px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* brilho superior */
+
+.chamada-doacao-conteudo::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 8%;
+    right: 8%;
+
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #d4af37,
+        transparent
+    );
+}
+
+
+/* coração */
+
+.chamada-doacao-icone {
+    width: 44px;
+    height: 44px;
+
+    min-width: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(212, 175, 55, 0.08);
+
+    border: 1px solid rgba(212, 175, 55, 0.45);
+
+    color: #d4af37;
+
+    font-size: 18px;
+}
+
+
+/* texto */
+
+.chamada-doacao-texto {
+    text-align: left;
+}
+
+.chamada-doacao-titulo {
+    margin: 0 0 3px;
+
+    color: #d4af37;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+}
+
+.chamada-doacao-subtitulo {
+    margin: 0 0 3px;
+
+    color: #fff;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.chamada-doacao-subtitulo strong {
+    color: #d4af37;
+}
+
+.chamada-doacao-texto span {
+    color: rgba(255, 255, 255, 0.55);
+
+    font-size: 10px;
+}
+
+
+
+/* =========================================
+   PARTE INFERIOR
+   FIGURINHAS | BOTÕES | PIX
+========================================= */
+
+.conteudo-card-figurinhas {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+/* esquerda */
+
+.area-figurinhas {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* centro */
+
+.area-botoes {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+}
+
+
+/* direita */
+
+.area-pix {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+@keyframes entrada{
+
+from{
+
+opacity:0;
+
+transform:scale(.8);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+
+/* =========================
+   BOTÕES PIX
+========================= */
+
+.pix-botoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    width: 180px;
+}
+
+.btn-pix {
+    width: 100%;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    margin: 0;
+
+    border-radius: 10px;
+
+    color: #241700;
+    font-size: 12px;
+    font-weight: 800;
+
+    cursor: pointer;
+    transition: .3s;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffd45c 0%,
+            #ffc52e 55%,
+            #e6a100 100%
+        );
+
+    border: 1px solid rgba(255,240,180,.55);
+
+    box-shadow:
+        0 5px 14px rgba(255,185,0,.22),
+        inset 0 1px 0 rgba(255,255,255,.45);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-pix:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(255,185,0,.38),
+        inset 0 1px 0 rgba(255,255,255,.55);
+}
+
+
+/* =========================
+   BRILHO PREMIUM
+========================= */
+
+.btn-pix::before {
+    content: "";
+
+    position: absolute;
+
+    top: -60%;
+    left: -60%;
+
+    width: 45%;
+    height: 220%;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,.35),
+            transparent
+        );
+
+    transform: rotate(25deg);
+
+    animation: brilhoPix 5s linear infinite;
+}
+
+
+@keyframes brilhoPix {
+
+    0% {
+        left: -60%;
+    }
+
+    100% {
+        left: 140%;
+    }
+
+}
+
+
+/* =========================
+   CHAVE PIX
+========================= */
+
+.btn-chave {
+
+    color: #ffe7a0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #202020 0%,
+            #0d0d0d 100%
+        );
+
+    border: 1px solid rgba(212,175,55,.65);
+
+    box-shadow:
+        0 5px 14px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.08),
+        0 0 12px rgba(212,175,55,.08);
+}
+
+
+.btn-chave:hover {
+
+    color: #fff2c5;
+
+    border-color: #d4af37;
+
+    box-shadow:
+        0 8px 20px rgba(212,175,55,.22),
+        inset 0 1px 0 rgba(255,255,255,.10);
+}
+
+
+.btn-pix span {
+    white-space: nowrap;
+}
+
+.pix-area{
+
+width:34%;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+
+padding:4px 7px;
+
+background:
+linear-gradient(180deg,#16120a 0%,#080808 100%);
+
+border:2px solid rgba(255,194,58,.70);
+
+border-radius:15px;
+
+box-shadow:
+
+    inset 0 0 45px rgba(255,210,90,.08),
+
+    inset 0 1px 0 rgba(255,255,255,.05),
+
+    0 12px 35px rgba(0,0,0,.35),
+
+    0 0 18px rgba(255,185,0,.10);
+
+position:relative;
+
+}
+/* ==========================
+   DIVISOR CENTRAL
+========================== */
+
+.divisor-centro{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:14px;
+
+    margin:-2px 0;
+
+}
+
+.divisor-centro span{
+
+    flex:1;
+
+    height:2px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,194,58,.9),
+        transparent
+    );
+
+}
+
+.divisor-centro p{
+
+    color:#efe7d5;
+
+    font-size:17px;
+
+    font-weight:500;
+
+    white-space:nowrap;
+
+    margin:0;
+
+}
+/* =========================
+   COLUNA CENTRAL
+========================= */
+
+.acoes-centro{
+
+    width:34%;
+
+    min-height:250px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+
+/* =========================
+   BOTÃO BAIXAR
+========================= */
+
+.btn-download{
+
+    width:100%;
+
+    height:108px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+    padding:0 24px;
+
+    background:
+    linear-gradient(180deg,#202020 0%,#0f0f0f 100%);
+
+    border:2px solid #d5a73a;
+
+    border-radius:30px;
+
+    color:#fff8df;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    inset 0 -10px 20px rgba(0,0,0,.45),
+    0 12px 30px rgba(255,180,0,.12);
+
+}
+
+
+.btn-download:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 10px 28px rgba(255,190,0,.35);
+
+}
+
+
+
+/* =========================
+   BOTÃO DOAÇÃO
+========================= */
+
+.btn-doacao{
+
+    width:100%;
+
+    height:108px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+    padding:0 24px;
+
+    background:
+    linear-gradient(
+        180deg,
+        #ffe07a 0%,
+        #ffc933 45%,
+        #eaab00 100%
+    );
+
+    border:2px solid rgba(255,247,190,.70);
+
+    border-radius:30px;
+
+    color:#241700;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:
+    inset 0 2px 0 rgba(255,255,255,.45),
+    inset 0 -8px 18px rgba(180,120,0,.18),
+    0 15px 35px rgba(255,180,0,.30);
+
+}
+
+
+.btn-doacao:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 14px 34px rgba(255,185,0,.40);
+
+}
+/* TEXTO DOS BOTÕES */
+
+.texto-btn{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    line-height:1.1;
+
+}
+
+.texto-btn strong{
+
+    font-size:19px;
+
+    font-weight:900;
+
+    color:inherit;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
+
+}
+
+.texto-btn small{
+
+    margin-top:6px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    opacity:.9;
+
+    text-transform:none;
+
+}
+
+
+/* ÍCONE DOWNLOAD */
+
+.icone-download{
+
+    width:66px;
+
+    height:66px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+    linear-gradient(
+        180deg,
+        #ffe37f,
+        #f2bb24
+    );
+
+    color:#2a1b00;
+
+    font-size:28px;
+
+    margin-right:22px;
+
+    box-shadow:
+    inset 0 2px 0 rgba(255,255,255,.45),
+    0 6px 15px rgba(255,190,0,.28);
+
+    flex-shrink:0;
+
+}
+
+
+/* ÍCONE DOAÇÃO */
+
+.icone-doacao{
+
+    width:66px;
+
+    height:66px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#161616;
+
+    border:2px solid rgba(255,208,74,.45);
+
+    color:#ffd34d;
+
+    font-size:27px;
+
+    margin-right:22px;
+
+    box-shadow:
+    0 6px 18px rgba(0,0,0,.35);
+
+    flex-shrink:0;
+
+}
+
+/* ==========================
+   BRILHO PREMIUM BOTÕES
+========================== */
+
+.btn-download,
+.btn-doacao{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.btn-download::before,
+.btn-doacao::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-60%;
+
+    left:-40%;
+
+    width:45%;
+
+    height:220%;
+
+    background:linear-gradient(
+
+        120deg,
+
+        transparent,
+
+        rgba(255,255,255,.35),
+
+        transparent
+
+    );
+
+    transform:rotate(25deg);
+
+    animation:brilhoBotao 5s linear infinite;
+
+}
+
+
+.qrcode{
+
+width:130px;
+
+
+display:block;
+
+margin:22px auto;
+
+background:#fff;
+
+padding:8px;
+
+border-radius:20px;
+
+border:4px solid #f4c64e;
+
+box-shadow:
+
+0 0 0 3px rgba(255,214,120,.18),
+
+0 0 30px rgba(255,194,58,.45);
+
+transition:.35s;
+
+}
+
+.impacto{
+
+max-width:850px;
+
+margin:12px auto 20px;
+
+padding:15px 20px;
+
+text-align:center;
+
+background:
+
+linear-gradient(
+145deg,
+rgba(255,215,0,.12),
+rgba(255,255,255,.03)
+);
+
+border-radius:25px;
+
+border:1px solid rgba(255,215,0,.45);
+
+box-shadow:
+
+0 0 25px rgba(255,215,0,.25),
+inset 0 0 30px rgba(255,215,0,.08);
+
+backdrop-filter:blur(12px);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+/* brilho passando */
+
+.impacto::before{
+
+content:"";
+
+position:absolute;
+
+top:-50%;
+
+left:-50%;
+
+width:200%;
+
+height:200%;
+
+background:
+
+linear-gradient(
+120deg,
+transparent,
+rgba(255,215,0,.25),
+transparent
+);
+
+transform:rotate(25deg);
+
+animation:brilho 5s infinite;
+
+}
+
+
+@keyframes brilho{
+
+
+0%{
+
+transform:translateX(-100%) rotate(25deg);
+
+}
+
+
+50%{
+
+transform:translateX(100%) rotate(25deg);
+
+}
+
+
+100%{
+
+transform:translateX(100%) rotate(25deg);
+
+}
+
+
+}
+
+@keyframes brilhoBotao{
+
+    0%{
+
+        left:-60%;
+
+    }
+
+    100%{
+
+        left:140%;
+
+    }
+
+}
+
+.impacto p{
+
+position:relative;
+
+z-index:2;
+
+font-family:'Inter', sans-serif;
+
+font-size:13px;
+
+line-height:1.5;
+
+letter-spacing:0;
+
+color:#e5e5e5;
+
+font-weight:500;
+
+max-width:750px;
+
+margin:auto;
+
+white-space:normal;
+
+}
+
+
+
+.impacto strong{
+
+font-family:'Inter', sans-serif;
+
+color:#ffd700;
+
+font-size:14px;
+
+font-weight:800;
+
+text-shadow:
+
+0 0 8px rgba(255,215,0,.7);
+
+}
+
+/* =========================
+CONTADOR
+========================= */
+.contador{
+text-align:center;
+font-size:42px;
+color:#ffd700;
+font-weight:bold;
+}
+
+.subtexto{
+text-align:center;
+color:#ccc;
+margin-top:10px;
+}
+
+/* =========================
+PIX / BOTÃO
+========================= */
+.pix{
+text-align:center;
+}
+
+.pixkey{
+
+background:
+
+linear-gradient(180deg,#2a210b,#17120b);
+
+border:2px solid #d8a62f;
+
+color:#ffe28a;
+
+padding:14px 20px;
+
+border-radius:16px;
+
+margin-top:18px;
+
+font-size:24px;
+
+font-weight:800;
+
+letter-spacing:1px;
+
+box-shadow:
+
+0 0 15px rgba(255,194,58,.25);
+
+}
+
+button{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+margin:14px auto 0;
+
+width:88%;
+
+height:58px;
+
+background:linear-gradient(
+180deg,
+#ffd45c 0%,
+#ffc52e 55%,
+#e6a100 100%
+);
+
+border:2px solid rgba(255,240,180,.45);
+
+border-radius:22px;
+
+color:#1f1600;
+
+font-size:20px;
+
+font-weight:900;
+
+cursor:pointer;
+
+transition:.30s;
+
+box-shadow:
+0 6px 18px rgba(255,185,0,.30),
+inset 0 2px 0 rgba(255,255,255,.45);
+
+}
+
+button:hover{
+
+transform:translateY(-2px);
+
+box-shadow:
+
+0 10px 25px rgba(255,185,0,.45);
+
+}
+/* =========================
+VÍDEOS Y CARROSSEL
+========================= */
+
+.carrossel{
+
+display:flex;
+gap:15px;
+overflow-x:auto;
+scroll-behavior:smooth;
+padding:10px 5px;
+
+}
+
+
+.carrossel::-webkit-scrollbar{
+
+height:6px;
+
+}
+
+
+/* CARD DO VÍDEO */
+
+.short{
+
+min-width:220px;
+background:#111;
+border-radius:15px;
+overflow:hidden;
+cursor:pointer;
+transition:.3s;
+
+}
+
+
+.short:hover{
+
+transform:translateY(-5px);
+
+}
+
+
+/* CAPA DO VÍDEO */
+
+.short img{
+
+width:100%;
+height:130px;
+object-fit:cover;
+display:block;
+
+}
+
+
+/* TÍTULO */
+
+.short p{
+
+padding:12px;
+color:#ffd700;
+font-size:14px;
+line-height:1.4;
+
+}
+
+/* =========================
+SETAS DO CARROSSEL
+========================= */
+
+.box-carrossel{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+}
+
+
+.seta{
+
+width:35px;
+
+height:35px;
+
+border-radius:50%;
+
+background:#ffd700;
+
+color:#000;
+
+border:none;
+
+font-size:22px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:0;
+
+}
+
+
+.seta:hover{
+
+transform:scale(1.1);
+
+}
+
+
+.carrossel{
+
+flex:1;
+
+}
+
+/* =========================
+BOTÃO ASSISTIR
+========================= */
+
+
+.imagem-video{
+
+position:relative;
+
+}
+
+
+.assistir{
+
+position:absolute;
+
+bottom:15px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+background:#ffd700;
+
+color:#000;
+
+border:none;
+
+padding:8px 18px;
+
+border-radius:20px;
+
+font-weight:bold;
+
+opacity:0;
+
+transition:.3s;
+
+pointer-events:none;
+
+}
+
+
+.short:hover .assistir{
+
+opacity:1;
+
+}
+
+
+
+.views{
+
+padding:0 12px 12px;
+
+color:#aaa;
+
+font-size:13px;
+
+}
+
+/* =========================
+COMENTÁRIOS
+========================= */
+
+.online{
+
+font-size:13px;
+
+color:#00ff66;
+
+margin-left:10px;
+
+font-weight:normal;
+
+}
+
+.novo{
+
+animation:novoComentario 1.2s ease;
+
+border:1px solid #ffd700;
+
+box-shadow:0 0 18px rgba(255,215,0,.5);
+
+}
+
+
+@keyframes novoComentario{
+
+0%{
+
+opacity:0;
+
+transform:translateY(-30px);
+
+}
+
+40%{
+
+background:#3b3200;
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+background:#111;
+
+}
+
+}
+
+#novoComentario{
+
+text-align:center;
+
+color:#ffd700;
+
+font-weight:bold;
+
+margin-bottom:15px;
+
+opacity:0;
+
+transition:.4s;
+
+}
+
+.comentario{
+
+position:relative;
+
+}
+
+
+.data-comentario{
+
+position:absolute;
+
+right:15px;
+
+bottom:12px;
+
+font-size:12px;
+
+color:#777;
+
+}
+
+.comentario{
+background:#111;
+padding:15px;
+border-radius:10px;
+margin-top:10px;
+color:#ddd;
+}
+
+.comentario img{
+
+display:inline-block;
+
+}
+
+
+.comentario p{
+
+margin-top:10px;
+
+color:#ddd;
+
+line-height:1.5;
+
+}
+
+/* =========================
+RESPONSIVO
+========================= */
+@media(max-width:600px){
+.logo{font-size:30px;}
+.contador{font-size:30px;}
+.apoio-container{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+
+.figurinhas,
+.pix-area{
+
+width:100%;
+
+}
+
+
+.figurinha{
+
+width:150px;
+
+}
+}
+
+@media(max-width:600px){
+
+.banner{
+
+width:100%;
+
+max-height:180px;
+
+object-fit:contain;
+
+border-radius:12px;
+
+}
+
+}
+
+/* =====================================================
+   BANNER DO CURSO — FINAL DA PÁGINA
+===================================================== */
+
+.curso-promocao {
+    margin: 45px auto 25px;
+    width: 100%;
+    max-width: 1000px;
+    padding: 10px;
+    position: relative;
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffd45c,
+            #8f650b 35%,
+            #ffd45c 70%,
+            #8f650b
+        );
+
+    box-shadow:
+        0 0 35px rgba(255, 190, 0, .25),
+        0 20px 60px rgba(0,0,0,.55);
+}
+
+.curso-promocao-inner {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #050505;
+}
+
+/* Banner */
+
+.curso-promocao img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+/* brilho passando */
+
+.curso-promocao-inner::after {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: -80%;
+
+    width: 35%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.18),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    animation: brilhoCurso 6s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+@keyframes brilhoCurso {
+
+    0% {
+        left: -80%;
+    }
+
+    45% {
+        left: 140%;
+    }
+
+    100% {
+        left: 140%;
+    }
+
+}
+
+
+/* Área do botão */
+
+.curso-cta {
+    padding: 25px 20px 30px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(255,215,0,.12),
+            transparent 65%
+        );
+}
+
+
+/* Texto acima do botão */
+
+.curso-cta p {
+    margin-bottom: 15px;
+
+    color: #ddd;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    letter-spacing: .3px;
+}
+
+.curso-cta p strong {
+    color: #ffd34d;
+}
+
+
+/* BOTÃO SAIBA MAIS */
+
+.btn-saiba-mais {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    width: min(620px, 95%);
+
+    min-height: 72px;
+
+    margin: auto;
+
+    padding: 0 35px;
+
+    border-radius: 18px;
+
+    border: 2px solid #ffe79a;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffe27a 0%,
+            #ffc52e 45%,
+            #e6a100 100%
+        );
+
+    color: #211500;
+
+    text-decoration: none;
+
+    font-size: 24px;
+
+    font-weight: 950;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    box-shadow:
+        0 10px 30px rgba(255,185,0,.35),
+        inset 0 2px 0 rgba(255,255,255,.65),
+        inset 0 -5px 10px rgba(150,90,0,.18);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+    overflow: hidden;
+}
+
+
+/* brilho do botão */
+
+.btn-saiba-mais::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -70%;
+    left: -60%;
+
+    width: 35%;
+    height: 240%;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,.55),
+            transparent
+        );
+
+    transform: rotate(25deg);
+
+    animation: brilhoSaiba 4s linear infinite;
+}
+
+@keyframes brilhoSaiba {
+
+    0% {
+        left: -60%;
+    }
+
+    100% {
+        left: 150%;
+    }
+
+}
+
+
+/* conteúdo do botão */
+
+.btn-saiba-mais span,
+.btn-saiba-mais i {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-saiba-mais i {
+    font-size: 25px;
+}
+
+
+/* hover */
+
+.btn-saiba-mais:hover {
+
+    transform: translateY(-4px) scale(1.015);
+
+    box-shadow:
+        0 16px 40px rgba(255,185,0,.5),
+        inset 0 2px 0 rgba(255,255,255,.75);
+}
+
+
+/* texto pequeno abaixo */
+
+.curso-seguranca {
+
+    margin-top: 13px;
+
+    color: rgba(255,255,255,.55);
+
+    font-size: 12px;
+
+    font-weight: 500;
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .curso-promocao {
+        margin-top: 30px;
+        padding: 5px;
+        border-radius: 17px;
+    }
+
+    .curso-promocao-inner {
+        border-radius: 13px;
+    }
+
+    .curso-cta {
+        padding: 20px 12px 24px;
+    }
+
+    .curso-cta p {
+        font-size: 14px;
+    }
+
+    .btn-saiba-mais {
+        width: 100%;
+        min-height: 64px;
+        font-size: 18px;
+        border-radius: 15px;
+        padding: 0 15px;
+    }
+
+    .btn-saiba-mais i {
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width: 768px){
+
+  .apoio-container{
+    flex-direction: column; /* empilha */
+    align-items: stretch;   /* ocupa largura total */
+    gap:15px;
+  }
+
+  .apoio-container a,
+  .apoio-container button{
+    width:100%;             /* botões ocupam tudo */
+    text-align:center;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- =========================
+HEADER
+========================= -->
+<div class="header">
+
+<img src="banner-doacao.jpg" class="banner">
+
+</div>
+
+<!-- =========================
+REDES SOCIAIS (COM ÍCONES)
+========================= -->
+
+<div class="redes">
+
+<a href="https://www.youtube.com/@ab%C3%ADbliarevela"
+   target="_blank"
+   class="youtube"
+   onclick="registrarFluxo('youtube')">
+
+    <i class="fab fa-youtube"></i> YouTube
+
+</a>
+
+
+<a href="https://www.instagram.com/abibliarevelaofc/"
+   target="_blank"
+   class="instagram"
+   onclick="registrarFluxo('instagram')">
+
+    <i class="fab fa-instagram"></i> Instagram
+
+</a>
+
+
+<a href="https://www.facebook.com/abibliarevela/"
+   target="_blank"
+   class="facebook"
+   onclick="registrarFluxo('facebook')">
+
+    <i class="fab fa-facebook"></i> Facebook
+
+</a>
+
+
+<a href="https://www.tiktok.com/@abibliarevelaa"
+   target="_blank"
+   class="tiktok"
+   onclick="registrarFluxo('tiktok')">
+
+    <i class="fab fa-tiktok"></i> TikTok
+
+</a>
+
+</div>
+
+<div class="chamada-doacao">
+
+    <div class="chamada-doacao-conteudo">
+
+        <div class="chamada-doacao-icone">
+            <i class="fas fa-heart"></i>
+        </div>
+
+        <div class="chamada-doacao-texto">
+            <p class="chamada-doacao-titulo">
+                APOIE ESSA MISSÃO
+            </p>
+
+            <p class="chamada-doacao-subtitulo">
+                DOE QUALQUER VALOR <strong>DE CORAÇÃO</strong>
+            </p>
+
+            <span>
+                Sua contribuição nos ajuda a continuar levando a Palavra de Deus.
+            </span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =========================
+CONTADOR YOUTUBE
+========================= -->
+
+<div class="card apoio-container">
+
+
+<div class="figurinhas">
+
+
+<img src="figurinha1.png" class="figurinha ativa">
+<img src="figurinha2.png" class="figurinha">
+<img src="figurinha3.png" class="figurinha">
+<img src="figurinha4.png" class="figurinha">
+
+ <div class="figurinhas-exclusivas">
+        <span>+ 10</span>
+        <small>Figurinhas Exclusivas</small>
+    </div>
+
+
+</div>
+
+
+
+<div class="acoes-centro">
+
+    <button class="btn-download" onclick="baixarFigurinhas()">
+
+
+<span class="icone-download">
+    <i class="fas fa-download"></i>
+</span>
+
+<span class="texto-btn">
+
+    <strong>BAIXAR</strong>
+
+    <small>Figurinhas Grátis</small>
+
+</span>
+</button>
+
+<div class="divisor-centro"></div>
+
+
+
+
+
+<button class="btn-doacao" onclick="copiarPix()">
+
+    <span class="icone-doacao">
+        <i class="fas fa-heart"></i>
+    </span>
+
+    <span class="texto-btn">
+        <strong>FAZER DOAÇÃO</strong>
+        <small>Apoie este projeto</small>
+    </span>
+
+</button>
+
+
+
+</div>
+
+<div class="pix-area">
+
+
+<img src="qrcode.png" class="qrcode">
+
+
+
+<div class="pix-botoes">
+
+    <button class="btn-pix" onclick="copiarPix()">
+        📋 <span>PIX Copia e Cola</span>
+    </button>
+
+    <button class="btn-pix btn-chave" onclick="copiarChavePix()">
+        🔑 <span>Chave PIX</span>
+    </button>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+<!-- =========================
+PIX
+========================= -->
+
+<div class="impacto">
+
+<p>
+🔥 São mais de <strong>250 mil inscritos</strong> com mais de <strong>20 milhões de visualizações</strong> em todas as plataformas.
+<br><br>
+🙏 Ajude a manter este projeto vivo e a continuar levando a Palavra de Deus para milhares de vidas.
+</p>
+
+</div>
+
+<!-- =========================
+SHORTS AUTOMÁTICOS
+========================= -->
+
+<div class="card">
+
+<h2>🔥 Vídeos recentes</h2>
+
+<div class="box-carrossel">
+
+<button class="seta esquerda" onclick="moverCarrossel('recentes', -1)">
+❮
+</button>
+
+<div class="carrossel" id="recentes"></div>
+
+<button class="seta direita" onclick="moverCarrossel('recentes', 1)">
+❯
+</button>
+
+</div>
+
+
+
+<h2 style="margin-top:30px">
+⭐ Mais vistos
+</h2>
+
+
+<div class="box-carrossel">
+
+<button class="seta esquerda" onclick="moverCarrossel('maisVistos', -1)">
+❮
+</button>
+
+
+<div class="carrossel" id="maisVistos"></div>
+
+
+<button class="seta direita" onclick="moverCarrossel('maisVistos', 1)">
+❯
+</button>
+
+</div>
+
+</div>
+
+<!-- =========================
+PROVA SOCIAL
+========================= -->
+
+<div class="card">
+
+<h2>
+💬 Comentários recentes
+<span class="online">
+● ao vivo
+</span>
+</h2>
+
+<div id="novoComentario"></div>
+
+<div id="comentarios"></div>
+
+</div>
+
+<!-- =====================================================
+     BANNER DO CURSO CRIADOR PRO
+===================================================== -->
+
+<div class="curso-promocao">
+
+    <div class="curso-promocao-inner">
+
+        <!-- Banner do curso -->
+        <img
+            src="banner-curso-criador-pro.png"
+            alt="Curso Criador PRO - Edição com IA"
+        >
+
+        <div class="curso-cta">
+
+            <p>
+                🚀 <strong>Quer aprender a criar vídeos como esses?</strong>
+                Entre para o Curso Criador PRO.
+            </p>
+
+            <a
+                href="https://go.hotmart.com/F100632774H"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-saiba-mais"
+                 onclick="registrarFluxo('curso')"
+            >
+
+                <i class="fas fa-rocket"></i>
+
+                <span>SAIBA MAIS</span>
+
+                <i class="fas fa-arrow-right"></i>
+
+            </a>
+
+            <div class="curso-seguranca">
+                ✦ Aulas práticas • Inteligência Artificial • Edição • Efeitos virais
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- CONTROLE DE FLUXO -->
+<div id="fluxoControle" class="fluxo-controle">
+
+    👁️ <span id="fluxoAcessos">0</span> |
+
+    ↓ <span id="fluxoFigurinhas">0</span> |
+
+    📋 PIX <span id="fluxoPix">0</span> |
+
+    🔑 <span id="fluxoChave">0</span> |
+
+    ▶️ YouTube <span id="fluxoYoutube">0</span> |
+
+    📷 Instagram <span id="fluxoInstagram">0</span> |
+
+    f Facebook <span id="fluxoFacebook">0</span> |
+
+    ♪ TikTok <span id="fluxoTiktok">0</span> |
+
+    🎓 Curso <span id="fluxoCurso">0</span>
+
+</div>
+
+
+<!-- =========================
+SCRIPT
+========================= -->
+
+<script>
+
+// ===== CONFIG =====
+
+let comentariosAtuais = [];
+
+
+
+// ===== CONTADOR =====
+async function pegarInscritos(){
+
+try{
+
+let res = await fetch("/api/youtube");
+
+let data = await res.json();
+
+
+document.getElementById("contador").innerHTML =
+Number(data.inscritos).toLocaleString("pt-BR");
+
+
+}catch(error){
+
+console.log(error);
+
+document.getElementById("contador").innerHTML="Erro";
+
+}
+
+}
+
+// ===== VÍDEOS AUTOMÁTICOS =====
+
+async function criarVideos(){
+
+try{
+
+
+const [recentes,populares] = await Promise.all([
+
+fetch("/api/videos"),
+
+fetch("/api/populares")
+
+]);
+
+
+const listaRecentes = await recentes.json();
+
+const listaPopulares = await populares.json();
+
+
+
+montarCarrossel(
+"recentes",
+listaRecentes
+);
+
+
+montarCarrossel(
+"maisVistos",
+listaPopulares
+);
+
+
+
+}catch(error){
+
+console.log("ERRO VIDEOS:", error);
+
+}
+
+}
+
+function baixarFigurinhas() {
+    registrarFluxo("baixarFigurinhas");
+
+    window.open("/baixar-figurinhas", "_blank");
+}
+
+function copiarPix() {
+
+    const pix = "00020126330014br.gov.bcb.pix0111219824996985204000053039865802BR5920MATHEUS LUCAS VIEIRA6014RIO DE JANEIRO6304485B";
+
+    if (!navigator.clipboard) {
+
+        mostrarToastPix(
+            "Seu navegador não permite copiar automaticamente."
+        );
+
+        return;
+
+    }
+
+    navigator.clipboard.writeText(pix)
+
+        .then(() => {
+
+            registrarFluxo("copiarPix");
+
+            mostrarToastPix(
+                "A chave PIX foi copiada para sua área de transferência."
+            );
+
+        })
+
+        .catch(() => {
+
+            mostrarToastPix(
+                "Não foi possível copiar o PIX.",
+                true
+            );
+
+        });
+
+}
+
+
+function copiarChavePix() {
+
+    const chavePix = "21982499698";
+
+    if (!navigator.clipboard) {
+
+        mostrarToastPix(
+            "Seu navegador não permite copiar automaticamente."
+        );
+
+        return;
+
+    }
+
+    navigator.clipboard.writeText(chavePix)
+
+        .then(() => {
+
+            registrarFluxo("copiarChavePix");
+
+            mostrarToastPix(
+                "A chave PIX foi copiada para sua área de transferência."
+            );
+
+        })
+
+        .catch(() => {
+
+            mostrarToastPix(
+                "Não foi possível copiar a chave PIX.",
+                true
+            );
+
+        });
+
+}
+
+
+function mostrarToastPix(mensagem, erro = false) {
+
+    // Remove toast anterior
+    const antigo = document.querySelector(".toast-pix");
+
+    if (antigo) {
+        antigo.remove();
+    }
+
+    // Cria o toast
+    const toast = document.createElement("div");
+
+    toast.className = "toast-pix";
+
+    toast.innerHTML = `
+        <div class="toast-pix-icone ${erro ? "erro" : ""}">
+            <i class="fas ${erro ? "fa-times" : "fa-check"}"></i>
+        </div>
+
+        <div class="toast-pix-texto">
+            <strong>${erro ? "ERRO AO COPIAR" : "PIX COPIADO"}</strong>
+            <span>${mensagem}</span>
+        </div>
+
+        <button class="toast-pix-fechar" onclick="this.parentElement.remove()">
+            <i class="fas fa-times"></i>
+        </button>
+    `;
+
+    document.body.appendChild(toast);
+
+    // Entrada
+    requestAnimationFrame(() => {
+        toast.classList.add("mostrar");
+    });
+
+    // Saída automática
+    setTimeout(() => {
+
+        if (!toast.isConnected) return;
+
+        toast.classList.remove("mostrar");
+
+        setTimeout(() => {
+            if (toast.isConnected) {
+                toast.remove();
+            }
+        }, 400);
+
+    }, 3500);
+}
+
+// =========================
+// CONTROLE DE FLUXO
+// =========================
+
+async function registrarFluxo(tipo) {
+
+    try {
+
+        await fetch("/api/fluxo", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                tipo: tipo
+            })
+
+        });
+
+        carregarFluxo();
+
+    } catch (erro) {
+
+        console.log("Erro ao registrar fluxo:", erro);
+
+    }
+
+}
+
+async function carregarFluxo() {
+
+    try {
+
+        const resposta = await fetch("/api/fluxo");
+
+        if (!resposta.ok) return;
+
+        const dados = await resposta.json();
+
+        document.getElementById("fluxoAcessos").textContent =
+            dados.acessos || 0;
+
+        document.getElementById("fluxoFigurinhas").textContent =
+            dados.baixarFigurinhas || 0;
+
+        document.getElementById("fluxoPix").textContent =
+            dados.copiarPix || 0;
+
+        document.getElementById("fluxoChave").textContent =
+            dados.copiarChavePix || 0;
+
+        document.getElementById("fluxoYoutube").textContent =
+            dados.youtube || 0;
+
+        document.getElementById("fluxoInstagram").textContent =
+            dados.instagram || 0;
+
+        document.getElementById("fluxoFacebook").textContent =
+            dados.facebook || 0;
+
+        document.getElementById("fluxoTiktok").textContent =
+            dados.tiktok || 0;
+
+        document.getElementById("fluxoCurso").textContent =
+            dados.curso || 0;
+
+    } catch (erro) {
+
+        console.log(
+            "Erro carregando fluxo:",
+            erro
+        );
+
+    }
+
+}
+
+function montarCarrossel(id, videos){
+
+const area=document.getElementById(id);
+
+
+area.innerHTML="";
+
+
+videos.forEach(video=>{
+
+
+const div=document.createElement("div");
+
+
+div.className="short";
+
+
+div.innerHTML=`
+
+<div class="imagem-video">
+
+<img src="${video.imagem}">
+
+<button class="assistir">
+▶ Assistir
+</button>
+
+</div>
+
+
+<p>
+${video.titulo.substring(0,55)}...
+</p>
+
+
+<div class="views">
+
+👁 ${video.views || "Muitas"} visualizações
+
+</div>
+
+`;
+
+
+
+div.onclick=()=>{
+
+window.open(
+`https://youtube.com/watch?v=${video.id}`,
+"_blank"
+);
+
+};
+
+
+
+area.appendChild(div);
+
+
+});
+
+
+}
+
+function moverCarrossel(id, direcao){
+
+const area=document.getElementById(id);
+
+
+area.scrollBy({
+
+left: direcao * 300,
+
+behavior:"smooth"
+
+});
+
+}
+
+function tempoComentario(data){
+
+
+const agora = new Date();
+
+
+const publicado = new Date(data);
+
+
+
+const segundos = Math.floor(
+(agora - publicado) / 1000
+);
+
+
+
+const minutos = Math.floor(
+segundos / 60
+);
+
+
+
+const horas = Math.floor(
+minutos / 60
+);
+
+
+
+const dias = Math.floor(
+horas / 24
+);
+
+
+
+const semanas = Math.floor(
+dias / 7
+);
+
+
+
+const meses = Math.floor(
+dias / 30
+);
+
+
+
+if(segundos < 60){
+
+return "há poucos segundos";
+
+}
+
+
+if(minutos < 60){
+
+return `há ${minutos} minuto${minutos>1?"s":""}`;
+
+}
+
+
+if(horas < 24){
+
+return `há ${horas} hora${horas>1?"s":""}`;
+
+}
+
+
+if(dias < 7){
+
+return `há ${dias} dia${dias>1?"s":""}`;
+
+}
+
+
+if(semanas < 5){
+
+return `há ${semanas} semana${semanas>1?"s":""}`;
+
+}
+
+
+return `há ${meses} mês${meses>1?"es":""}`;
+
+
+}
+
+
+async function carregarComentarios(){
+
+
+try{
+
+
+const resposta = await fetch(
+"/api/comentarios"
+);
+
+
+const comentarios =
+await resposta.json();
+
+const novos = comentarios.filter(c =>
+    !comentariosAtuais.some(
+        antigo =>
+            antigo.nome === c.nome &&
+            antigo.texto === c.texto &&
+            antigo.data === c.data
+    )
+);
+
+if(novos.length){
+
+const aviso = document.getElementById("novoComentario");
+
+aviso.innerHTML="✨ Novo comentário recebido";
+
+aviso.style.opacity=1;
+
+setTimeout(()=>{
+
+aviso.style.opacity=0;
+
+},2500);
+
+}
+
+comentariosAtuais = comentarios;
+
+const area =
+document.getElementById("comentarios");
+
+
+
+area.innerHTML="";
+
+
+
+comentarios.forEach(c=>{
+
+const novo = novos.some(n =>
+    n.nome === c.nome &&
+    n.texto === c.texto &&
+    n.data === c.data
+);
+
+
+
+area.innerHTML += `
+
+
+<div class="comentario ${novo ? "novo" : ""}">
+
+
+<img src="${c.foto}"
+style="
+width:35px;
+height:35px;
+border-radius:50%;
+vertical-align:middle;
+margin-right:10px;
+">
+
+
+<b>${c.nome}</b>
+
+
+<p>
+${c.texto}
+</p>
+
+<span class="data-comentario">
+${tempoComentario(c.data)}
+</span>
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+
+
+
+}catch(error){
+
+console.log(
+"ERRO COMENTARIOS:",
+error
+);
+
+
+}
+
+
+}
+
+
+
+// ===== INIT =====
+
+
+pegarInscritos();
+
+criarVideos();
+
+carregarComentarios();
+
+carregarFluxo();
+
+registrarFluxo("acessos");
+
+// inscritos a cada 5 minutos
+
+setInterval(()=>{
+
+pegarInscritos();
+
+},300000);
+
+
+
+
+// vídeos a cada 3 horas
+
+setInterval(()=>{
+
+criarVideos();
+
+},10800000);
+
+
+
+
+// comentários a cada 30 segundos
+
+setInterval(()=>{
+
+carregarComentarios();
+
+},30000);
+
+
+let atual = 0;
+
+const figurinhas = document.querySelectorAll(".figurinha");
+
+
+function trocarFigurinha(){
+
+
+figurinhas.forEach(fig=>{
+
+fig.classList.remove("ativa");
+
+});
+
+
+
+figurinhas[atual].classList.add("ativa");
+
+
+
+atual++;
+
+
+if(atual >= figurinhas.length){
+
+atual = 0;
+
+}
+
+
+}
+
+
+
+trocarFigurinha();
+
+
+setInterval(()=>{
+
+trocarFigurinha();
+
+},4000);
+
+
+
+
+</script>
+
+</body>
+</html>
