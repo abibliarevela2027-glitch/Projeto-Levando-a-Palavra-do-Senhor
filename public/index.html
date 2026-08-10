@@ -2157,6 +2157,32 @@ border-radius:12px;
 
 }
 
+@media (max-width: 768px){
+
+  .apoio-container a,
+  .apoio-container button{
+    width: 100%;
+    height: auto !important; /* 🔥 remove altura fixa */
+    min-height: 45px;
+    padding: 12px 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    white-space: normal; /* 🔥 permite quebrar linha */
+    line-height: 1.2;
+    border-radius: 12px;
+  }
+
+  /* TEXTO DO BOTÃO */
+  .apoio-container span{
+    display: inline !important;
+  }
+
+}
+
 </style>
 
 </head>
