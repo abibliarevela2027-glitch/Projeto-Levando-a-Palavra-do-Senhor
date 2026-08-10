@@ -2720,41 +2720,17 @@ function baixarFigurinhas() {
 }
 
 function copiarPix() {
-
-    const pix = "00020126330014br.gov.bcb.pix0111219824996985204000053039865802BR5920MATHEUS LUCAS VIEIRA6014RIO DE JANEIRO6304485B";
-
-    if (!navigator.clipboard) {
-
-        mostrarToastPix(
-            "Seu navegador não permite copiar automaticamente."
-        );
-
-        return;
-
-    }
+    const pix = "00020126360014br.gov.bcb.pix0114+55219824996985204000053039865802BR5925MATHEUS LUCAS VIEIRA MASC6014RIO DE JANEIRO62170513ABIBLIAREVELA63047380";
 
     navigator.clipboard.writeText(pix)
-
         .then(() => {
-
-            registrarFluxo("copiarPix");
-
-            mostrarToastPix(
-                "A chave PIX foi copiada para sua área de transferência."
-            );
-
+            mostrarToastPix("PIX Copia e Cola copiado!");
         })
-
         .catch(() => {
-
-            mostrarToastPix(
-                "Não foi possível copiar o PIX.",
-                true
-            );
-
+            mostrarToastPix("Não foi possível copiar o PIX.", true);
         });
-
 }
+
 
 
 function copiarChavePix() {
