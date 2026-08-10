@@ -2099,62 +2099,62 @@ border-radius:12px;
 }
 
 
-/* MOBILE */
-
-@media(max-width:600px){
-
-    .curso-promocao {
-        margin-top: 30px;
-        padding: 5px;
-        border-radius: 17px;
-    }
-
-    .curso-promocao-inner {
-        border-radius: 13px;
-    }
-
-    .curso-cta {
-        padding: 20px 12px 24px;
-    }
-
-    .curso-cta p {
-        font-size: 14px;
-    }
-
-    .btn-saiba-mais {
-        width: 100%;
-        min-height: 64px;
-        font-size: 18px;
-        border-radius: 15px;
-        padding: 0 15px;
-    }
-
-    .btn-saiba-mais i {
-        font-size: 20px;
-    }
-
-}
-
+/* ===== MOBILE COMPACTO ===== */
 @media (max-width: 768px){
 
+  body{
+    font-size: 14px;
+  }
+
+  /* CONTAINER GERAL */
+  .container, section{
+    padding:10px !important;
+    margin:0 !important;
+  }
+
+  /* TITULOS */
+  h1, h2, h3{
+    font-size:18px !important;
+    text-align:center;
+  }
+
+  /* ===== BOTÕES ===== */
   .apoio-container{
+    display:flex;
     flex-direction: column;
-    align-items: stretch;
-    padding:15px;
+    gap:10px;
   }
 
   .apoio-container a,
   .apoio-container button{
     width:100%;
-    padding:14px;
-    font-size:16px;
-    border-radius:12px;
+    padding:10px;
+    font-size:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
   }
 
-}
+  /* GARANTE QUE TEXTO APAREÇA */
+  .apoio-container span{
+    display:inline !important;
+  }
 
-.apoio-container{
-  flex-wrap: wrap;
+  /* ===== VÍDEOS ===== */
+  .video-container{
+    display:grid;
+    grid-template-columns: 1fr 1fr; /* 2 por linha */
+    gap:8px;
+  }
+
+  .video-container iframe,
+  .video-container video{
+    width:100%;
+    height:180px; /* menor */
+    border-radius:10px;
+  }
+
 }
 
 </style>
