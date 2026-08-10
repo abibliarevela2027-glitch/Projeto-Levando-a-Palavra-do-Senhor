@@ -2183,6 +2183,37 @@ border-radius:12px;
 
 }
 
+@media (max-width: 768px){
+
+  .conteudo-card-figurinhas{
+    grid-template-columns: 1fr !important; /* 🔥 vira 1 coluna */
+    gap: 15px;
+  }
+
+  .area-figurinhas,
+  .area-botoes,
+  .area-pix{
+    width: 100%;
+  }
+
+  /* BOTÕES */
+  .area-botoes a,
+  .area-botoes button{
+    width: 100%;
+    height: auto !important;
+    padding: 12px;
+    font-size: 14px;
+
+    white-space: normal;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+
 </style>
 
 </head>
